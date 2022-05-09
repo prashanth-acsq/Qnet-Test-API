@@ -29,9 +29,9 @@ async def random_number():
 
 @app.get("/random-person")
 async def random_person():
-    return str(db["DB"][r.randint(0, len(db["DB"]))]["Name"]), \
-           str(db["DB"][r.randint(0, len(db["DB"]))]["Phone Number"]), \
-           str(db["DB"][r.randint(0, len(db["DB"]))]["Job"])
+    return str(db["DB"][r.randint(0, len(db["DB"] - 1))]["Name"]), \
+           str(db["DB"][r.randint(0, len(db["DB"] - 1))]["Phone Number"]), \
+           str(db["DB"][r.randint(0, len(db["DB"] - 1))]["Job"])
     
 
 @app.get("/custom-format")
