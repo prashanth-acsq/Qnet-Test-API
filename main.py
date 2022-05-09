@@ -17,9 +17,9 @@ async def root():
 
 @app.get("/random-strings")
 async def random_strings():
-    return "".join(r.choices(string.ascii_letters + ".", k=5)), \
-           "".join(r.choices(string.ascii_letters + ".", k=5)), \
-           "".join(r.choices(string.ascii_letters + ".", k=5))
+    return "".join(r.choices(string.ascii_letters, k=5)), \
+           "".join(r.choices(string.ascii_letters, k=5)), \
+           "".join(r.choices(string.ascii_letters, k=5))
 
 
 @app.get("/random-number")
