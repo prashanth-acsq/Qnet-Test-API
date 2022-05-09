@@ -32,3 +32,30 @@ async def random_person():
     return str(db["DB"][r.randint(0, len(db["DB"]))]["Name"]), \
            str(db["DB"][r.randint(0, len(db["DB"]))]["Phone Number"]), \
            str(db["DB"][r.randint(0, len(db["DB"]))]["Job"])
+    
+
+@app.get("/custom-format")
+async def custom_format():
+    return [{ 
+        "value" : "Your Text Here 1", 
+        "font" : {
+            "family" : "Monospace",
+            "height" : "60", 
+            "color" : "red", 
+            "background": { 
+                "color": "black" 
+                } 
+            } 
+        },
+        { 
+        "value" : "Your Text Here 2", 
+        "font" : {
+            "family" : "Arial",
+            "height" : "30", 
+            "color" : "green", 
+            "background": { 
+                "color": "lightgray" 
+                } 
+            } 
+        },]
+        
