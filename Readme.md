@@ -1,3 +1,16 @@
 ### **Q-NET REST Feed Test API**
 
-- Deployed [at](https://pcs-acsq-qnet-test-api.herokuapp.com/)
+<br>
+
+- Deployed at https://pcs-acsq-qnet-test-api.herokuapp.com
+
+<br>
+
+- Endpoints
+    1. `/`
+    2. `/random-strings`
+    3. `/random-number`
+    4. `/random-person`
+    5. `/custom-format`
+
+<br>
