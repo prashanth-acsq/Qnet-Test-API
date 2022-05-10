@@ -40,26 +40,23 @@ async def random_person():
 @app.get("/custom-format")
 async def custom_format():
     return [{ 
-        "value" : "Your Text Here 1", 
+        "value" : "Text 1", 
         "font" : {
             "family" : "Monospace",
             "height" : "60", 
             "color" : "red", 
-            "background": { 
-                "color": "black" 
-                } 
-            } 
+            },
         },
         { 
-        "value" : "Your Text Here 2", 
+        "value" : "Text 2", 
         "font" : {
             "family" : "Arial",
-            "height" : "30", 
+            "height" : "35", 
             "color" : "green", 
-            "background": { 
-                "color": "lightgray" 
-                } 
-            } 
+            },
+        "background": { 
+            "color": "lightgray" 
+            }, 
         },]
 
 ############################################################################################################
