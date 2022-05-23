@@ -18,6 +18,11 @@ async def root():
     return "Root Page", 
 
 
+@app.get("/wakeup")
+async def root():
+    return "Awake", 
+
+
 @app.get("/random-strings")
 async def random_strings():
     return "".join(r.choices(string.ascii_letters, k=5)), \
