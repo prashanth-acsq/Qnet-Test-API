@@ -3,24 +3,30 @@ import string
 import random as r
 
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
-############################################################################################################
-
-db = json.load(open("db.json", "r"))
-
-############################################################################################################
+STATIC_PATH = "static"
 
 app = FastAPI()
+app.mount("/static", StaticFiles(directory=STATIC_PATH), name="static")
+
+db = json.load(open(STATIC_PATH + "/db.json", "r"))
 
 
 @app.get("/")
 async def root():
-    return "Root Page", 
+    return {
+        "statusCode" : 200,
+        "statusText" : "Root Page"
+    } 
 
 
 @app.get("/wakeup")
-async def root():
-    return "Awake", 
+async def wakeup():
+    return {
+        "statusCode" : 200,
+        "statusText" : "Awake"
+    } 
 
 
 @app.get("/random-strings")
@@ -37,9 +43,10 @@ async def random_number():
 
 @app.get("/random-person")
 async def random_person():
-    return str(db["DB"][r.randint(0, len(db["DB"])-1)]["Name"]), \
-           str(db["DB"][r.randint(0, len(db["DB"])-1)]["Phone Number"]), \
-           str(db["DB"][r.randint(0, len(db["DB"])-1)]["Job"])
+    num = r.randint(0, len(db["DB"])-1)
+    return str(db["DB"][num]["Name"]), \
+           str(db["DB"][num]["Phone Number"]), \
+           str(db["DB"][num]["Job"])
     
 
 @app.get("/custom-format")

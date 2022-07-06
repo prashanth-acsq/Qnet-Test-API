@@ -1,0 +1,7 @@
+*.bat
+venv
+.gitignore
+__pycache__
+.pytest_cache
+.vscode
+test_main.py
