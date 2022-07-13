@@ -4,8 +4,11 @@ import random as r
 
 from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
+from starlette.responses import JSONResponse
+
 
 STATIC_PATH = "static"
+
 
 app = FastAPI()
 app.mount("/static", StaticFiles(directory=STATIC_PATH), name="static")
@@ -15,18 +18,18 @@ db = json.load(open(STATIC_PATH + "/db.json", "r"))
 
 @app.get("/")
 async def root():
-    return {
+    return JSONResponse({
         "statusCode" : 200,
         "statusText" : "Root Page"
-    } 
+    }) 
 
 
 @app.get("/wakeup")
 async def wakeup():
-    return {
+    return JSONResponse({
         "statusCode" : 200,
         "statusText" : "Awake"
-    } 
+    })
 
 
 @app.get("/random-strings")
@@ -38,7 +41,7 @@ async def random_strings():
 
 @app.get("/random-number")
 async def random_number():
-    return str(r.randint(100, 10000)), 
+    return JSONResponse([str(r.randint(100, 10000)), ])
 
 
 @app.get("/random-person")
