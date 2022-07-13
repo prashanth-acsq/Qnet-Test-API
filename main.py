@@ -34,9 +34,11 @@ async def wakeup():
 
 @app.get("/random-strings")
 async def random_strings():
-    return "".join(r.choices(string.ascii_letters, k=5)), \
-           "".join(r.choices(string.ascii_letters, k=5)), \
-           "".join(r.choices(string.ascii_letters, k=5))
+    return JSONResponse([
+        "".join(r.choices(string.ascii_letters, k=5)), \
+        "".join(r.choices(string.ascii_letters, k=5)), \
+        "".join(r.choices(string.ascii_letters, k=5))
+    ])
 
 
 @app.get("/random-number")
@@ -47,14 +49,16 @@ async def random_number():
 @app.get("/random-person")
 async def random_person():
     num = r.randint(0, len(db["DB"])-1)
-    return str(db["DB"][num]["Name"]), \
-           str(db["DB"][num]["Phone Number"]), \
-           str(db["DB"][num]["Job"])
+    return JSONResponse([
+        db["DB"][num]["Name"],
+        db["DB"][num]["Phone Number"],
+        db["DB"][num]["Job"],
+    ])
     
 
 @app.get("/custom-format")
 async def custom_format():
-    return [{ 
+    return JSONResponse([{ 
         "value" : "Text 1", 
         "font" : {
             "family" : "Monospace",
@@ -72,6 +76,6 @@ async def custom_format():
         "background": { 
             "color": "lightgray" 
             }, 
-        },]
+        },])
 
 ############################################################################################################
