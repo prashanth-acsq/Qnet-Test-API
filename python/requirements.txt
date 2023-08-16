@@ -1,0 +1,4 @@
+fastapi[all]
+uvicorn[standard]
+gunicorn
+pytest==7.1.2
