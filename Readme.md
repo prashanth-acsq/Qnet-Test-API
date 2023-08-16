@@ -10,3 +10,9 @@
     5. `/custom/format`
 
 <br>
+
+- [Python Deployment](https://pcs-acsq-qnet-test-api-py.onrender.com)
+
+<br>
+
+- [Node Deployment](https://pcs-acsq-qnet-test-api-node.onrender.com)
