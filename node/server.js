@@ -9,7 +9,7 @@ getRandomString = (length) => {
  }
 
 
- getRandomInt = (max) => {
+getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
 }
 
